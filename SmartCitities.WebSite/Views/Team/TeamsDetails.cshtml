@@ -1,0 +1,68 @@
+﻿@model ContainerVM
+@{
+    ViewData["Title"] = "Home Page |Details";
+    string imagth = ViewBag.ImagthPath;
+    //string imagth = CostantsVaule.imgthPath;
+}
+
+
+
+@section LeftSide {
+
+
+    <!-- Hero Start -->
+    <
+    <div class="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
+        <h1 class="display-4 text-white mb-4 animated slideInRight">Our Team</h1>
+
+    </div>
+
+
+}
+<div class="container-fluid">
+    <div class="row ">
+        <h1>Memabers In Smart Cities</h1>
+    </div>
+    <div class="row ">
+        <p>
+            regardless of the industry or the size of the company. Successful teams enable maximum productivity, drive innovation, and nurture a positive company culture.
+
+            But the process of building a strong team isn’t straightforward or simple. It requires a clear understanding of team dynamics, a thoughtful selection process, effective communication, and a commitment to fostering a healthy and inclusive team culture.
+
+            In this comprehensive guide, you will find step-by-step strategies to navigate the process of building a strong team. From understanding team dynamics to implementing effective communication practices, we’ll provide valuable insights to help create a high-performing team that contributes to the overall success of the organization.
+
+            With these proven techniques and principles, you can lay the foundation for a strong team that brings out the best in its members, promotes collaboration, and propels the organization towards its goals!
+
+            What Is a Strong Team?
+            A strong team is a group of individuals united in their effort to achieve common goals. They synergize their unique skills, experiences, and perspectives to produce results that are greater than the sum of their parts. In a strong team, individuals don’t just work together; they support each other, learn from each other, and continuously strive to enhance their collective performance.
+
+            A strong team isn’t merely defined by its output but also by the relationships and dynamics within the group. In such teams, members respect and trust each other, value each other’s contributions, and believe in their collective ability to succeed. These elements of respect, trust, and collective efficacy are as crucial to a team’s strength as their technical skills and competencies.
+        </p>
+    </div>
+
+
+</div>
+
+
+<div class="container-fluid">
+    <div class="row ">
+        @foreach (var team in Model.Teams)
+        {
+            <div class="col col-3">
+                <img src="@imagth@team.ImageUrl" style="width:200px;height200px;" />
+                <p>@team.Name <span style="color:darkblue;font-weight:bold">@team.JobTitle</span> </p>
+
+        </div>
+        }
+        
+
+    </div>
+    
+
+</div>
+
+
+
+
+
+

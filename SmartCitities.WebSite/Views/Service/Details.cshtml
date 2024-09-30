@@ -1,0 +1,62 @@
+﻿@model List<Product>
+@{
+    string imagth = ViewBag.ImagthPath;
+}
+
+@section LeftSide {
+
+
+
+
+                <div class="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
+                    <h1 class="display-4 text-white mb-4 animated slideInRight">Our Products</h1>
+                    
+                </div>
+
+
+}
+@foreach(var product in Model)
+{
+    if(product.ParentProduct!=null)
+    {
+        <div class="container-fluid" style="text-align:center">
+            <div class="row">
+                <div class="col-6">
+                    
+                        <img src="@imagth@product.ParentProduct.ImageUrl" style="width:50%;height:300px;" />
+                   
+                </div>
+                <div class="col-6">
+                    
+                        <h1>@product.ParentProduct.Name</h1>
+                        <p>@product.ParentProduct.Description</p>
+                    
+                </div>
+               
+            </div>
+           
+
+
+        </div>
+        <h1 style="text-align:center;color:cornflowerblue">Its Products</h1>
+        
+    }
+    <div class="container-fluid">
+        <div class="row" style="text-align:center">
+            <div class="col-6">
+                <div style="width:500px;height:300px;">
+                    <img src="@imagth@product.ImageUrl" style="width:500;height:300px;" />
+                </div>
+            </div>
+       
+   
+        <div class="col-6" style="text-align:center">
+            <h1>@product.Name</h1>
+            <p>@product.Description</p>
+    </div>
+
+
+        </div>
+    </div>
+}
+

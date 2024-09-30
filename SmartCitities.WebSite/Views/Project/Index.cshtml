@@ -1,0 +1,46 @@
+﻿@model ContainerVM
+@{
+    string imagth = ViewBag.ImagthPath;
+    
+}
+
+
+@section LeftSide{
+
+                <div class="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
+                    <h1 class="display-4 text-white mb-4 animated slideInRight">Our Projects</h1>
+                   
+                </div>
+               
+}
+<!-- Case Start -->
+<div class="container-fluid bg-light py-5">
+    <div class="container py-5">
+        <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 500px;">
+            <div class="btn btn-sm border rounded-pill text-primary px-3 mb-3">Case Study</div>
+            <h1 class="mb-4">Explore Our Recent Smarts</h1>
+        </div>
+        <div class="row g-4">
+            @foreach (var project in Model.projects)
+            {
+                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="case-item position-relative overflow-hidden rounded mb-2">
+                        <img class="img-fluid" src="@imagth@project.ImageUrl" alt="">
+                        <a asp-controller="Project"
+                           asp-action="Details"
+                           asp-route-id="@project.Id"
+                           class="case-overlay text-decoration-none">
+                            <small>@project.Name</small>
+                            <h5 class="lh-base text-white mb-3">
+                                @project.Description
+                            </h5>
+                            <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
+                        </a>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+<!-- Case End -->

@@ -1,0 +1,15 @@
+﻿
+@model List<Product>
+
+
+
+
+<p style="margin-right:2px;">Products</p>
+<div class="dropdown-options">
+    @foreach(var product in Model)
+
+    {
+        <a asp-action="Details" asp-route-id="@product.Id">@product.Name</a>
+    }
+
+</div>

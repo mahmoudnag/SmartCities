@@ -1,0 +1,84 @@
+﻿@using SmartCitities.Admin.StaticF
+@model IEnumerable<SmartCities.Core.Models.Project>
+
+@{
+    ViewData["Title"] = "Index";
+    if (!string.IsNullOrEmpty(CostantsVaules.LayoutType))
+    {
+        Layout = CostantsVaules.LayoutType;
+
+    }
+   
+}
+
+<h1>Projects</h1>
+<p>
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
+    <a class="btn btn-success" asp-controller="Home" asp-action="Index">Back To Home</a>
+</p>
+@if(Model.Count()==0)
+{
+    <h1 style="color:darkblue;text-align:center">NO Projects Added</h1>
+}
+else
+{
+
+<table class="table">
+    <thead>
+        <tr>
+          
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+           
+            <th>
+      Picture
+            </th>
+           
+           
+          
+          
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+        
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                        @item.Description.Substring(0,(@item.Description.Length)/8)..
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.User.UserName)
+            </td>
+
+              <td>
+                  @if(item.ImageUrl==null)
+                        {
+                            <img src="~/Images/notfound.png" style="height:100px;width:100px;" />
+                        }
+                        else
+                        {
+                            <img src="@item.ImageUrl" style="height:100px;width:100px;" />
+
+                        }
+               </td>
+          
+           
+          
+                <td>
+                    <a class="btn btn-dark" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a class="btn btn-group" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>
+}

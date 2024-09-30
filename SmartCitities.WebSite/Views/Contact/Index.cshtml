@@ -1,0 +1,85 @@
+﻿@model ContactRequestVM
+
+@section LeftSide{
+
+
+
+            <div class="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
+                <h1 class="display-4 text-white mb-4 animated slideInRight">Contact Us</h1>
+                
+            </div>
+            
+
+}
+
+<!-- Contact Start -->
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+
+
+
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 500px;">
+            <div class="btn btn-sm border rounded-pill text-primary px-3 mb-3">Contact Us</div>
+            <h1 class="mb-4">If You Have Any Query, Please Contact Us</h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+     
+                <div class="wow fadeIn" data-wow-delay="0.3s">
+                    <form asp-action="Add" id="myForm" method="post">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input asp-for="Name"  type="text" required class="form-control" id="name" placeholder="Your Name">
+                                    <span asp-validation-for="Name" name="Name" style="color:red"></span>
+                                    <label for="name">Your Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input asp-for="Email" type="email"   class="form-control" id="email" placeholder="Your Email">
+                                    <label for="email">Your Email</label>
+                                    <span asp-validation-for="Email" style="color:red"></span>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input asp-for="Subject" type="text" required  class="form-control" id="subject" placeholder="Subject">
+                                    <label for="subject">Subject</label>
+                                    <span asp-validation-for="Subject" style="color:red"></span>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input asp-for="PhoneNumber" type="text" required  class="form-control" id="phoneNumber" placeholder="phoneNumber">
+                                    <label for="subject">Phone Number</label>
+                                    <span asp-validation-for="PhoneNumber" style="color:red"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea asp-for="Message" required class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
+                                    <label for="message">Message</label>
+                                    <span asp-validation-for="Message" style="color:red"></span>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</div>
+
+    </script>
+<!-- Contact End -->

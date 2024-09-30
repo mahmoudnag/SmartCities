@@ -1,0 +1,44 @@
+﻿@model ContainerVM
+
+
+
+
+<div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+    <a href="index.html" class="d-inline-block mb-3">
+        <h1 class="text-white">Smart<span class="text-primary"> </span>Citites</h1>
+    </a>
+    <p class="mb-0">
+        @Model.company.Mission
+    </p>
+</div>
+<div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
+    <h5 class="text-white mb-4">Get In Touch</h5>
+    <p><i class="fa fa-map-marker-alt me-3"></i>@Model.company.Address</p>
+    <p><i class="fa fa-phone-alt me-3"></i>@Model.company.PhoneNumber</p>
+    <p><i class="fa fa-envelope me-3"></i>@Model.company.Email</p>
+    <div class="d-flex pt-2">
+        <a class="btn btn-outline-light btn-social" href="@Model.company.TwiterUrl"><i class="fab fa-twitter"></i></a>
+        <a class="btn btn-outline-light btn-social" href="@Model.company.FaceBookUr"><i class="fab fa-facebook-f"></i></a>
+        <a class="btn btn-outline-light btn-social" href="@Model.company.youtubeUrl"><i class="fab fa-youtube"></i></a>
+        <a class="btn btn-outline-light btn-social" href="@Model.company.InstagramUrl"><i class="fab fa-instagram"></i></a>
+        <a class="btn btn-outline-light btn-social" href="@Model.company.LinkedInUrl"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+</div>
+<div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
+    <h5 class="text-white mb-4">Popular Link</h5>
+    <a class="btn btn-link" asp-controller="AboutUs" asp-action="Index">About Us</a>
+    <a class="btn btn-link" asp-controller="Contact" asp-action="Index">Contact Us</a>
+    <a class="btn btn-link" href="">Privacy Policy</a>
+    <a class="btn btn-link" href="">Terms & Condition</a>
+    <a class="btn btn-link" href="">Career</a>
+</div>
+<div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+    <h5 class="text-white mb-4">Our Products</h5>
+    @foreach (var product in Model.Products)
+    {
+        <a class="btn btn-link" asp-controller="Service" asp-action="Details" asp-route-x="@product.Id">@product.Name</a>
+    }
+  
+</div>
+
+

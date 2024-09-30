@@ -1,0 +1,42 @@
+﻿@model ContainerVM
+@{
+    ViewData["Title"] = "Home Page |Details";
+    string imagth = ViewBag.ImagthPath;
+
+}
+
+
+@section LeftSide
+{
+
+
+
+  
+                <div class="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
+              
+                </div>
+
+}
+<div class="container-fluid">
+    <div class="row ">
+        <div class="col-6">
+            <img src="@imagth@Model.company.Logo" style="width: 400px;height:400px;"  />
+
+        </div>
+        <div class="col-6">
+            <h1>
+                @Model.company.Name
+            </h1>
+            <p> @Model.company.AboutUs</p>
+         
+        </div>
+
+    </div>
+    <div class="row ">
+        <h1>@Model.company.Name</h1>
+        <p>@Model.company.AboutUs we work for @Model.company.Mission our Vision @Model.company.vision </p>
+
+    </div>
+
+</div>
+
